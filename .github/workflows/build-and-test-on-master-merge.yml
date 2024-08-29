@@ -22,5 +22,5 @@ jobs:
       - name: Test Flask App Liveness
         uses: enflo/curl-action@master
         with:
-          curl: http://localhost/
+          curl: http://127.0.0.1/
 
