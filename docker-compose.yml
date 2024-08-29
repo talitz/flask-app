@@ -1,5 +1,5 @@
 services:
-  web:
+  flask:
     image: flask-app:latest
     build:
       context: .
