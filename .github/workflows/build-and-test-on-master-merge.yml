@@ -4,7 +4,7 @@ on:
     types:
       - closed
 jobs:
-  if_merged:
+  build-and-test-on-master-merge:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
@@ -18,13 +18,9 @@ jobs:
       - name: Run docker-compose
         uses: hoverkraft-tech/compose-action@v2.0.1
         with:
-<<<<<<< Updated upstream
-          compose-file: './docker-compose.yml'
-          service: flask-
-=======
           compose-file: "./docker-compose.yml"
->>>>>>> Stashed changes
       - name: Test Flask App Liveness
         uses: enflo/curl-action@master
         with:
           curl: localhost/
+
