@@ -56,9 +56,7 @@ You can access the Flask application by navigating to the following URL in your 
 #### Local Development using Docker Compose
 
 Building can be done:
-```
-docker-compose up --build
- ```
+```docker-compose up --build```
 
 Now, you can access the Flask application by navigating to the following URL in your web browser: http://localhost/
 
