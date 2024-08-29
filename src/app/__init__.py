@@ -48,6 +48,11 @@ def get_user(user_id):
         logging.getLogger().error(f"An exception occurred in /json/user/{user_id}: {repr(e)}")
         return jsonify({"error": "An internal error occurred"}), 500
 
+# Health check
+@app.route('/health', methods=['GET'])
+@limiter.limit("3000 per minute")
+def health():
+    return jsonify({"status": "healthy"}), 200
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8000, debug=True)

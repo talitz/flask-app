@@ -19,6 +19,7 @@ jobs:
         uses: hoverkraft-tech/compose-action@v2.0.1
         with:
           compose-file: "./docker-compose.yml"
+          up-flags: "--wait --wait-timeout 60"
       - name: Test Flask App Liveness
         uses: enflo/curl-action@master
         with:
