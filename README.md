@@ -52,3 +52,16 @@ Once the image is built, you can run the container using the following command:
 This command starts the container and maps port 5000 inside the container to port 5001 on your local machine.
 
 You can access the Flask application by navigating to the following URL in your web browser: http://127.0.0.1:5001/
+
+#### Local Development using Docker Compose
+
+Building can be done:
+```
+docker-compose up --build
+ ```
+
+Now, you can access the Flask application by navigating to the following URL in your web browser: http://localhost/
+
+For spinning down all containers:
+```docker-compose down```
+
