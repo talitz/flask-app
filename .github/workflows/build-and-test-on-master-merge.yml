@@ -15,10 +15,10 @@ jobs:
         with:
           push: false
           tags: flask:latest
-      - uses: adrielcodeco/docker-compose-run-action@v1
+      - name: Run docker-compose
+        uses: hoverkraft-tech/compose-action@v2.0.1
         with:
-          compose-file: './docker-compose.yml'
-          service: flask
+          compose-file: "./docker-compose.yml"
       - name: Test Flask App Liveness
         uses: enflo/curl-action@master
         with:
