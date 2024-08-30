@@ -14,9 +14,9 @@ jobs:
     runs-on: ubuntu-latest
     name: Create terraform plan
     env:
-      #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      TF_VAR_aws_secret: ${{ secrets.GITHUB_TOKEN }}
-      TF_VAR_aws_key: ${{ secrets.GITHUB_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      TF_VAR_aws_secret: ${{ secrets.TF_VAR_aws_secret }}
+      TF_VAR_aws_key: ${{ secrets.TF_VAR_aws_key }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
