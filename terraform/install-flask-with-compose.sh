@@ -12,7 +12,8 @@ sudo usermod -a -G docker ec2-user
 
 #docker compose
 sudo curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-composedocker-compose version
+sudo chmod +x /usr/local/bin/docker-compose
+sudo docker-compose version
 
 #git
 sudo yum install git -y
