@@ -24,7 +24,6 @@ jobs:
       - name: Initialise project and view terraform plan
         run: |
           cd terraform 
-          cd qa
           terraform fmt
           terraform init 
           terraform plan -var='example_api_key=${{ secrets.EXAMPLE_API_KEY }}'
