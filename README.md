@@ -103,11 +103,11 @@ terraform apply
 
 Once applied succesfully:
 
-![alt text](https://i.postimg.cc/WDVpmJM5/Screenshot-2024-08-30-at-20-24-58.png)
+![alt text](https://imgtr.ee/image/hHJdWo)
 
 Access the deployment via the created ALB (HTTP) on the /health API:
 
-![alt text](https://i.postimg.cc/ZBKT2ts3/Screenshot-2024-08-30-at-20-24-37.png)
+![alt text](https://pasteboard.co/IZi4VfMS4wPM.png)
 
 Use Chekov on your terraform plans to identify, early in the development phase; misconfigurations that may lead to security or compliance problems:
 ```
