@@ -1,0 +1,22 @@
+name: Build and Test Flask App on Master Merge
+on:
+  pull_request:
+    types:
+      - closed
+jobs:
+  build-and-test-on-master-merge:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Docker Build
+        uses: docker/build-push-action@v6
+        with:
+          push: false
+          tags: flask:latest
+      - name: Run docker-compose with Liveness
+        uses: hoverkraft-tech/compose-action@v2.0.1
+        with:
+          compose-file: "./docker-compose.yml"
+          up-flags: "--wait --wait-timeout 60"

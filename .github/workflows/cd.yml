@@ -1,0 +1,25 @@
+name: Deploy Docker Compose on EC2
+on:
+  push:
+    tags:
+      - '*'
+
+#env:
+#  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#  TERRAFORM_CLOUD_TOKENS: terraform.example.com=${{ secrets.TF_REGISTRY_TOKEN }}
+#  TERRAFORM_SSH_KEY: ${{ secrets.TERRAFORM_SSH_KEY }}
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    name: Create terraform plan
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: terraform plan
+        uses: dflook/terraform-plan@v1
+        with:
+          path: terraform
