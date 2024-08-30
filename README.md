@@ -101,13 +101,13 @@ terraform plan
 terraform apply
 ```
 
-Once applied succesfully:
+Once applied successfully:
 
-![alt text](https://imgtr.ee/image/hHJdWo)
+![alt text](https://i.imghippo.com/files/8SepE1725039234.png)
 
 Access the deployment via the created ALB (HTTP) on the /health API:
 
-![alt text](https://pasteboard.co/IZi4VfMS4wPM.png)
+![alt text](https://i.imghippo.com/files/lOmwr1725039197.png)
 
 Use Chekov on your terraform plans to identify, early in the development phase; misconfigurations that may lead to security or compliance problems:
 ```
