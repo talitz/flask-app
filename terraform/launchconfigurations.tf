@@ -71,6 +71,7 @@ resource "aws_iam_instance_profile" "session-manager" {
 resource "aws_instance" "bastion" {
   ami                         = lookup(var.amis, var.region)
   instance_type               = var.instance_type
+  user_data                   =  file("install_apache.sh")
   key_name                    = aws_key_pair.terraform-lab.key_name
   iam_instance_profile        = aws_iam_instance_profile.session-manager.id
   associate_public_ip_address = true
