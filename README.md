@@ -87,6 +87,7 @@ Prerequisites
 - Terraform v1.5.7
 - AWS Account
 - Chekov 
+- Trivy
 
 Configure your AWS Credentials (including the following TF_VAR env vars): 
 ```
@@ -117,5 +118,14 @@ terraform show -json tfplan.binary | jq > tfplan.json
 checkov -f tfplan.json
 ```
 Work to prioritize and remediate all issues found by Chekov.
+
+Use Trivy as well (as a complementary solution) to scans all configuration files for misconfiguration issues, as well as for identifying CVEs within the created docker images.
+```
+trivy fs .
+trivy image flask-app
+```
+
+From the results, prioritize and solve the CVEs that matter the most (from CRITICAL to LOW):
+![alt text](https://i.imghippo.com/files/KC0BX1725046459.png)
 
 #### 2. GitHub Actions Pipeline Automation
