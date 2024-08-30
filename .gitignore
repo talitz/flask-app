@@ -169,6 +169,8 @@ terraform/.DS_Store
 *.tfstate.*
 *.tfplan.json.*
 *.tfplan.binary*
+terraform/tfplan.binary
+terraform/tfplan.json
 
 # Crash log files
 crash.log
