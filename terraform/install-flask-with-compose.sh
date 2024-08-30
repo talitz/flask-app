@@ -17,6 +17,10 @@ sudo chmod +x /usr/local/bin/docker-composedocker-compose version
 #git
 sudo yum install git -y
 
+#Install cloud watch for collecting logs
+sudo dpkg -r amazon-ssm-agent
+sudo yum install amazon-cloudwatch-agent
+
 #pulling github repo and executing app using docker-compose
 git clone https://github.com/talitz/flask-app.git
 cd flask-app

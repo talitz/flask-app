@@ -82,7 +82,7 @@ resource "aws_instance" "bastion" {
 }
 
 resource "aws_launch_configuration" "ec2" {
-  name                        = "${var.ec2_instance_name}-instances-lc"
+  name_prefix                 = "${var.ec2_instance_name}-instances-lc"
   image_id                    = lookup(var.amis, var.region)
   instance_type               = var.instance_type
   security_groups             = [aws_security_group.ec2.id]
@@ -91,4 +91,7 @@ resource "aws_launch_configuration" "ec2" {
   associate_public_ip_address = false
   user_data                   = file("${path.module}/install-flask-with-compose.sh")
   depends_on                  = [aws_nat_gateway.terraform-lab-ngw]
+  lifecycle {
+    create_before_destroy = true
+  }
 }
