@@ -54,7 +54,7 @@ resource "aws_internet_gateway" "terraform-lab-igw" {
 
 # NAT Gateway for the public subnet
 resource "aws_eip" "nat_gateway" {
-  vpc                       = true
+  domain                    = "vpc"
   associate_with_private_ip = "10.0.0.5"
   depends_on                = [aws_internet_gateway.terraform-lab-igw]
 }

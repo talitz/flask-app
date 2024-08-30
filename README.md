@@ -65,3 +65,34 @@ Now, you can access the Flask application by navigating to the following URL in 
 For spinning down all containers:
 ```docker-compose down```
 
+#### 4. GitHub Actions Pipeline Automation
+
+### AWS Infrastructure
+
+The infrastructure is deployed using terraform:
+- VPC with two public subnets and two private subnets in two different availability zones for high-availability.
+- Internet Gateway for internet traffic.
+- NAT Gateway to the private subnets, so the private subnets can connect to the internet.
+- Autoscaling group and launch templates to the EC2 Instances.
+- Security groups and route tables to enable traffic between subnets, NAT, and Internet Gateways.
+- Application Load Balancer for the EC2 auto scaling group.
+- Bastion EC2 instance to SSH into the EC2 instances running in private subnets.
+
+![alt text](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*p0PB24XPldiNMcx4nTzFEQ.png)
+
+#### 1. Local Terraform Development
+
+Configure the AWS Credentials: 
+```
+export TF_VAR_aws_key=""                           
+export TF_VAR_aws_secret=""
+```
+
+Then, run the following commands:
+```
+terraform init                           
+terraform plan
+terraform apply
+```
+
+#### 2. GitHub Actions Pipeline Automation
