@@ -82,6 +82,11 @@ The infrastructure is deployed using terraform:
 
 #### 1. Local Terraform Development
 
+##### Setup Instructions
+Prerequisites
+- Terraform v1.5.7
+- AWS Account
+
 Configure the AWS Credentials: 
 ```
 export TF_VAR_aws_key=""                           
