@@ -12,11 +12,12 @@ on:
 jobs:
   plan:
     runs-on: ubuntu-latest
-    name: Create terraform plan
+    name: Create Terraform Plan
     env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      TF_VAR_aws_secret: ${{ secrets.TF_VAR_aws_secret }}
-      TF_VAR_aws_key: ${{ secrets.TF_VAR_aws_key }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.TF_VAR_AWS_KEY }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.TF_VAR_AWS_SECRET }}
+      AWS_DEFAULT_REGION: us-east-2
+      AWS_DEFAULT_OUTPUT: json
     steps:
       - name: Checkout
         uses: actions/checkout@v4
