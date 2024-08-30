@@ -76,6 +76,7 @@ resource "aws_instance" "bastion" {
   associate_public_ip_address = true
   security_groups             = [aws_security_group.ec2.id]
   subnet_id                   = aws_subnet.public-subnet-1.id
+  user_data_replace_on_change = true
   tags = {
     Name = "Bastion"
   }

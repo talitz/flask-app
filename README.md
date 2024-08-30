@@ -86,8 +86,9 @@ The infrastructure is deployed using terraform:
 Prerequisites
 - Terraform v1.5.7
 - AWS Account
+- Chekov 
 
-Configure the AWS Credentials: 
+Configure your AWS Credentials (including the following TF_VAR env vars): 
 ```
 export TF_VAR_aws_key=""                           
 export TF_VAR_aws_secret=""
@@ -99,5 +100,22 @@ terraform init
 terraform plan
 terraform apply
 ```
+
+Once applied succesfully:
+
+![alt text](https://i.postimg.cc/WDVpmJM5/Screenshot-2024-08-30-at-20-24-58.png)
+
+Access the deployment via the created ALB (HTTP) on the /health API:
+
+![alt text](https://i.postimg.cc/ZBKT2ts3/Screenshot-2024-08-30-at-20-24-37.png)
+
+Use Chekov on your terraform plans to identify, early in the development phase; misconfigurations that may lead to security or compliance problems:
+```
+terraform init
+terraform plan --out tfplan.binary
+terraform show -json tfplan.binary | jq > tfplan.json
+checkov -f tfplan.json
+```
+Work to prioritize and remediate all issues found by Chekov.
 
 #### 2. GitHub Actions Pipeline Automation
