@@ -14,6 +14,8 @@ Prerequisites
 - Git
 
 ### Local Development
+
+#### 1. Run the Application locally
 Clone the repository:
 ```
 git clone https://github.com/talitz/flask-app-prod-pipeline.git
@@ -37,7 +39,7 @@ Copy the example environment file and adjust the variables as needed.
 
 The application will be available at http://127.0.0.1:5000.
 
-#### Local Development using Docker
+#### 2. Local Development using Docker
 
 To build the Docker image for the Flask application, navigate to the root directory of the project where the Dockerfile is located and run the following command:
 
@@ -53,7 +55,7 @@ This command starts the container and maps port 5000 inside the container to por
 
 You can access the Flask application by navigating to the following URL in your web browser: http://127.0.0.1:5001/
 
-#### Local Development using Docker Compose
+#### 3. Local Development using Docker Compose
 
 Building can be done:
 ```docker-compose up --build```
