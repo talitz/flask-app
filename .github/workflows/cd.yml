@@ -11,6 +11,7 @@ env:
  TF_VAR_aws_secret: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 jobs:
   terraform-plan-apply-and-deploy-compose:
+    uses: talitz/flask-app/.github/workflows/ci.yml@main
     runs-on: ubuntu-latest
     name: Create Terraform Plan
     defaults:
@@ -20,9 +21,6 @@ jobs:
     steps:
      - name: Checkout the repository to the runner
        uses: actions/checkout@v2
-
-     - name: Run Flask CI
-       uses: talitz/flask-app/.github/workflows/ci.yml@main
 
      - name: Set up SSH
        run: |
