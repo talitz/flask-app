@@ -30,6 +30,7 @@ jobs:
        uses: hashicorp/setup-terraform@v2
        with:
          terraform_version: 1.9.5
+         terraform_wrapper: false
 
      - name: Terraform Init
        id: init
@@ -52,6 +53,7 @@ jobs:
        continue-on-error: false
 
      - name: Terraform Apply
+       id: apply
        run: terraform apply -auto-approve -input=false
        continue-on-error: false
 
@@ -61,6 +63,7 @@ jobs:
           alb_dns=$(terraform output -raw alb_dns)
       
           # Debug output
+          echo ${{ steps.apply.outputs.alb_dns }} 
           echo "ALB DNS: $alb_dns"
       
           # Check if the ALB DNS is empty or not
