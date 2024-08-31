@@ -92,6 +92,7 @@ The infrastructure is deployed using terraform:
 
 Output from terraform graph:
 ```
+brew install graphviz
 terraform graph > graph.dot
 dot -Tpng graph.dot -o graph.png
 ```
