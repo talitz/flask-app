@@ -56,10 +56,21 @@ jobs:
        continue-on-error: false
 
      - name: Validate Application Healthiness on ALB
-       run: | 
-        alb_dns=$(terraform output -raw alb_dns)
-        echo "$alb_dns"
-        curl --fail "$alb_dns/health"
-        curl --fail "$alb_dns/json"
-        curl --fail "$alb_dns/json/user/1"
+       run: |
+          # Get the ALB DNS from Terraform output
+          alb_dns=$(terraform output -raw alb_dns)
+      
+          # Debug output
+          echo "ALB DNS: $alb_dns"
+      
+          # Check if the ALB DNS is empty or not
+          if [ -z "$alb_dns" ]; then
+            echo "Error: ALB DNS is empty."
+            exit 1
+          fi
+      
+          # Perform health checks
+          curl --fail --silent --show-error "$alb_dns/health" || { echo "Health check failed"; exit 1; }
+          curl --fail --silent --show-error "$alb_dns/json" || { echo "JSON endpoint check failed"; exit 1; }
+          curl --fail --silent --show-error "$alb_dns/json/user/1" || { echo "User endpoint check failed"; exit 1; }
        continue-on-error: false
