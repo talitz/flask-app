@@ -1,4 +1,4 @@
-name: Deploy Docker Compose on EC2
+name: Terraform Plan, Apply and Deploy Docker Compose on EC2
 on:
   push:
     tags:
@@ -10,16 +10,20 @@ env:
  TF_VAR_aws_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
  TF_VAR_aws_secret: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 jobs:
-  plan:
+  terraform-plan-apply-and-deploy-compose:
     runs-on: ubuntu-latest
     name: Create Terraform Plan
     defaults:
       run:
         shell: bash
         working-directory: ./terraform
+    needs: build-and-test-on-master-merge
     steps:
      - name: Checkout the repository to the runner
        uses: actions/checkout@v2
+
+     - name: Run Flask CI
+       uses: flask-app/.github/workflows/ci.yml@main
 
      - name: Set up SSH
        run: |
@@ -50,3 +54,9 @@ jobs:
 
      - name: Terraform Apply
        run: terraform apply -auto-approve -input=false
+
+     - name: Validate Application Healthiness on ALB
+       run: | 
+        alb_dns=$(terraform output -raw alb_dns)
+        curl --fail "$alb_dns/health"
+       continue-on-error: false
