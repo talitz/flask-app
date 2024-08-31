@@ -6,6 +6,7 @@ on:
 jobs:
   build-and-test-on-master-merge:
     if: github.event.pull_request.merged == true
+    name: Build and Test Flask App on Master Merge
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

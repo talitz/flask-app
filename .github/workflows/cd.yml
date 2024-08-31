@@ -11,9 +11,8 @@ env:
  TF_VAR_aws_secret: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 jobs:
   terraform-plan-apply-and-deploy-compose:
-    needs: talitz/flask-app/.github/workflows/ci.yml@main
     runs-on: ubuntu-latest
-    name: Create Terraform Plan
+    name: Terraform Plan, Apply and Deploy Docker Compose on EC2
     defaults:
       run:
         shell: bash
