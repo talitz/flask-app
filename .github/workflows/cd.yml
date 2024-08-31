@@ -17,7 +17,6 @@ jobs:
       run:
         shell: bash
         working-directory: ./terraform
-    needs: build-and-test-on-master-merge
     steps:
      - name: Checkout the repository to the runner
        uses: actions/checkout@v2
