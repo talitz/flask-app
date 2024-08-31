@@ -22,9 +22,9 @@ jobs:
        uses: actions/checkout@v2
 
      - name: Set up SSH
-      run: |
-        mkdir -p ~/.ssh/aws
-        echo "${{ secrets.SSH_PUB_KEY }}" > ~/.ssh/aws/aws_key.pub
+       run: |
+         mkdir -p ~/.ssh/aws
+         echo "${{ secrets.SSH_PUB_KEY }}" > ~/.ssh/aws/aws_key.pub
 
      - name: Setup Terraform with specified version on the runner
        uses: hashicorp/setup-terraform@v2
