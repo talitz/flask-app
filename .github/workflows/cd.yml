@@ -58,5 +58,8 @@ jobs:
      - name: Validate Application Healthiness on ALB
        run: | 
         alb_dns=$(terraform output -raw alb_dns)
+        echo "$alb_dns"
         curl --fail "$alb_dns/health"
+        curl --fail "$alb_dns/json"
+        curl --fail "$alb_dns/json/user/1"
        continue-on-error: false
