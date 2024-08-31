@@ -21,6 +21,9 @@ jobs:
      - name: Checkout the repository to the runner
        uses: actions/checkout@v2
 
+     - name: Set up SSH PUB Key
+       run: echo "${{ secrets.SSH_PUB_KEY }}" > c
+
      - name: Setup Terraform with specified version on the runner
        uses: hashicorp/setup-terraform@v2
        with:
