@@ -171,7 +171,7 @@ latest tag is used for flask:latest| The existing tag is used for simplification
 Chekov, SQ and Trivy are not automated in Pipelines| Security and Static Analysis should run as part of the automations, potentially force security rules and code quality standards.                                              | Medium   | Tal Yitzhak (yitzhtal@gmail.com)
 Drifts Management Identification| Create pipeline that alerts and detects drifts, to keep the IaC refreshed to the actual state as much as possible            | Medium   | Tal Yitzhak (yitzhtal@gmail.com)
 
-Code Related
+Code Related:
 
 Task | Description                                                                                                                                                                   | Priority | Owner |
 --- |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------|
