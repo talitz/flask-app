@@ -6,16 +6,16 @@ RUN apt-get update && apt-get install -y \
     sqlite3 \
     && rm -rf /var/lib/apt/lists/*
 
-WORKDIR /app
+WORKDIR /src
 
 COPY requirements.txt .
 
-COPY src/ /app/src/
+COPY src/ src/
 
 RUN pip install --no-cache-dir -r requirements.txt \
-    && mkdir -p /app/src/db \
-    && sqlite3 /app/src/db/flask_app.db "" \
-    && chown -R 100000:100000 /app/src/db
+    && mkdir -p /src/db \
+    && sqlite3 /src/db/flask_app.db "" \
+    && chown -R 100000:100000 /src/db
 
 USER 100000
 
