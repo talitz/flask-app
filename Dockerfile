@@ -21,5 +21,4 @@ USER 100000
 
 EXPOSE 5000
 
-# Command to run the application
 CMD ["python3", "-m", "flask", "--app", "src/app", "run", "--host=0.0.0.0"]
