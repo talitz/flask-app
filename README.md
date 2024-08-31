@@ -160,3 +160,11 @@ From the results, prioritize and solve the CVEs that matter the most (from CRITI
 The automation creates a terraform plan, applies it and test the healthiness of the application on the ALB:
 
 ![alt text](https://i.imghippo.com/files/xJlE91725117622.png)
+
+### Project Gaps/Roadmap Plan
+- Right now flask:latest The existing tag is used for simplification and conveniency; it's not recommended to use latest, therefore proper tagging should be implemented based on semantic versioning.
+
+Task | Description                                                                                                                                                                   | Priority | Owner |
+--- |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------|
+latest tag is used for flask:latest| The existing tag is used for simplification and conveniency; it's not recommended to use latest, therefore proper tagging should be implemented based on semantic versioning. | High     | Tal Yitzhak (yitzhtal@gmail.com)
+Chekov, SQ and Trivy is not automated in Pipelines| Security and Static Analysis should run as part of the automations, potentially force security rules and code quality standards                                               | Medium   | Tal Yitzhak (yitzhtal@gmail.com)
