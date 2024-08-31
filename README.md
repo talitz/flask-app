@@ -72,6 +72,10 @@ For spinning down all containers:
 
 #### 4. GitHub Actions Pipeline Automation
 
+The automation is created on PR merge to 'main', and runs the following steps:
+
+![alt text](https://i.imghippo.com/files/5b7Rd1725117509.png)
+
 #### 5. Use SonarQube for Static Code Analysis to Improve Code Quality:
 Ask for a user / login via SSO to https://sonarcloud.io/ to 'flask-app' dashboard on 'main' branch to resolve Issues, Security Hotspots, Coverage, Duplications, etc. 
 
@@ -152,3 +156,7 @@ From the results, prioritize and solve the CVEs that matter the most (from CRITI
 ![alt text](https://i.imghippo.com/files/KC0BX1725046459.png)
 
 #### 2. GitHub Actions Pipeline Automation
+
+The automation creates a terraform plan, applies it and test the healthiness of the application on the ALB:
+
+![alt text](https://i.imghippo.com/files/xJlE91725117622.png)
