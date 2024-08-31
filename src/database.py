@@ -1,10 +1,9 @@
 import logging
-import os
 import sqlite3
 
 import requests
 
-from src.app.utils import get_relative_db_path
+from src.utils import get_relative_db_path
 
 DATABASE = get_relative_db_path("../db/flask_app.db")
 

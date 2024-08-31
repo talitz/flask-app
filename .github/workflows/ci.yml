@@ -11,6 +11,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Install Dependencies, Run Unit & Integration Tests
+        run: |
+          pip install -r requirements.txt
+          pytest
+        continue-on-error: false
+
       - name: Docker Build
         uses: docker/build-push-action@v6
         with:

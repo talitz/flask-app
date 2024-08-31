@@ -36,7 +36,7 @@ source venv/bin/activate
 Copy the example environment file and adjust the variables as needed.
 
 #### Run the application:
-```python3 -m flask --app src/app run --port 5000 --debug```
+```python3 -m flask --app src run --port 5000 --debug```
 
 The application will be available at http://127.0.0.1:5000.
 
@@ -161,9 +161,18 @@ The automation creates a terraform plan, applies it and test the healthiness of 
 
 ![alt text](https://i.imghippo.com/files/xJlE91725117622.png)
 
-### Project Gaps/Roadmap Plan
+### Project Gaps/Roadmap Plan (better to use Jira/Project Management Solution)
+
+DevOps Related:
 
 Task | Description                                                                                                                                                                   | Priority | Owner |
 --- |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------|
 latest tag is used for flask:latest| The existing tag is used for simplification and conveniency; it's not recommended to use latest, therefore proper tagging should be implemented based on semantic versioning. | High     | Tal Yitzhak (yitzhtal@gmail.com)
-Chekov, SQ and Trivy are not automated in Pipelines| Security and Static Analysis should run as part of the automations, potentially force security rules and code quality standards                                               | Medium   | Tal Yitzhak (yitzhtal@gmail.com)
+Chekov, SQ and Trivy are not automated in Pipelines| Security and Static Analysis should run as part of the automations, potentially force security rules and code quality standards.                                              | Medium   | Tal Yitzhak (yitzhtal@gmail.com)
+
+Code Related
+
+Task | Description                                                                                                                                                                   | Priority | Owner |
+--- |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------|
+Externalize the api from __init__.py to routes.py file | Better code would be implementing all routes in a dedicated file  | High     | Tal Yitzhak (yitzhtal@gmail.com)
+Admin creds are hardcoded (or coming from env var) | It's better to store them secured and encrypted, not in the code, but from secrets manager or integration | High   | Tal Yitzhak (yitzhtal@gmail.com)

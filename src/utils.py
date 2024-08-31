@@ -1,8 +1,6 @@
 import logging
 import os
 
-from src.app import logger
-
 
 def get_relative_db_path(db_path):
     # Get the directory of the current script
