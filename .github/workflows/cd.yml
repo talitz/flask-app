@@ -52,5 +52,9 @@ jobs:
        if: steps.plan.outcome == 'failure'
        run: exit 1
 
+     - name: Approve Plan (Manual)
+       uses: trstringer/manual-approval@v1
+       timeout-minutes: 10
+
      - name: Terraform Apply
        run: terraform apply -auto-approve -input=false
