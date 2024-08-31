@@ -21,4 +21,4 @@ USER 100000
 
 EXPOSE 5000
 
-CMD ["python3", "-m", "flask", "--app", "src/app", "run", "--host=0.0.0.0"]
+CMD ["python3", "-m", "flask", "--app", "src", "run", "--host=0.0.0.0"]
