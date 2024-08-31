@@ -74,7 +74,7 @@ For spinning down all containers:
 
 The automation is created on PR merge to 'main', and runs the following steps:
 
-![alt text](https://i.imghippo.com/files/5b7Rd1725117509.png)
+![alt text](https://i.imghippo.com/files/WgVYj1725126582.png)
 
 #### 5. Use SonarQube for Static Code Analysis to Improve Code Quality:
 Ask for a user / login via SSO to https://sonarcloud.io/ to 'flask-app' dashboard on 'main' branch to resolve Issues, Security Hotspots, Coverage, Duplications, etc. 
