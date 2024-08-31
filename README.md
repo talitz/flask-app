@@ -46,7 +46,7 @@ To build the Docker image for the Flask application, navigate to the root direct
 
 ```
 TAG=$(date +'%Y%m%d%H%M%S')
-docker build -t flask-app:$TAG .
+docker build -t flask-app:dev-$TAG .
 ```
 
 This command will build a Docker image named flask-app based on the instructions in the Dockerfile.
@@ -54,7 +54,7 @@ It's not recommended to use the 'latest' tag.
 
 Once the image is built, you can run the container using the following command:
 
-```docker run -p 5001:5000 flask-app:$TAG```
+```docker run -p 5001:5000 flask-app:dev-$TAG```
 
 This command starts the container and maps port 5000 inside the container to port 5001 on your local machine.
 
@@ -89,6 +89,13 @@ The infrastructure is deployed using terraform:
 - Bastion EC2 instance to SSH into the EC2 instances running in private subnets.
 
 ![alt text](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*p0PB24XPldiNMcx4nTzFEQ.png)
+
+Output from terraform graph:
+```
+terraform graph > graph.dot
+dot -Tpng graph.dot -o graph.png
+```
+![alt text](terraform/graph.png)
 
 #### 1. Local Terraform Development
 
