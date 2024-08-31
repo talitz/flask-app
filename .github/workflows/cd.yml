@@ -52,9 +52,25 @@ jobs:
        if: steps.plan.outcome == 'failure'
        run: exit 1
 
+     - name: Generate token
+       id: generate_token
+       uses: tibdex/github-app-token@v1
+       with:
+         app_id: ${{ secrets.APP_ID }}
+         private_key: ${{ secrets.APP_PRIVATE_KEY }}
+
      - name: Approve Plan (Manual)
        uses: trstringer/manual-approval@v1
        timeout-minutes: 10
+       with:
+         approvers: talitz
+         secret: ${{ steps.generate_token.outputs.token }}
+         minimum-approvals: 1
+         issue-title: "Approving Terraform Plan"
+         issue-body: "Please approve or deny the created terraform plan"
+         exclude-workflow-initiator-as-approver: false
+         additional-approved-words: ''
+         additional-denied-words: ''
 
      - name: Terraform Apply
        run: terraform apply -auto-approve -input=false
