@@ -22,7 +22,7 @@ jobs:
        uses: actions/checkout@v2
 
      - name: Run Flask CI
-       uses: flask-app/.github/workflows/ci.yml@main
+       uses: talitz/flask-app/.github/workflows/ci.yml@main
 
      - name: Set up SSH
        run: |
