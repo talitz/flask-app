@@ -162,7 +162,6 @@ The automation creates a terraform plan, applies it and test the healthiness of 
 ![alt text](https://i.imghippo.com/files/xJlE91725117622.png)
 
 ### Project Gaps/Roadmap Plan
-- Right now flask:latest The existing tag is used for simplification and conveniency; it's not recommended to use latest, therefore proper tagging should be implemented based on semantic versioning.
 
 Task | Description                                                                                                                                                                   | Priority | Owner |
 --- |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------|
