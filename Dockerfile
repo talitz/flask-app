@@ -12,9 +12,8 @@ COPY requirements.txt .
 
 COPY src/ /app/src/
 
-RUN pip install --no-cache-dir -r requirements.txt
-
-RUN mkdir -p /app/src/db \
+RUN pip install --no-cache-dir -r requirements.txt \
+    && mkdir -p /app/src/db \
     && sqlite3 /app/src/db/flask_app.db "" \
     && chown -R 100000:100000 /app/src/db
 

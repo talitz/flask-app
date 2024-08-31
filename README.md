@@ -44,13 +44,17 @@ The application will be available at http://127.0.0.1:5000.
 
 To build the Docker image for the Flask application, navigate to the root directory of the project where the Dockerfile is located and run the following command:
 
-```docker build -t flask-app:latest .```
+```
+TAG=$(date +'%Y%m%d%H%M%S')
+docker build -t flask-app:$TAG .
+```
 
 This command will build a Docker image named flask-app based on the instructions in the Dockerfile.
+It's not recommended to use the 'latest' tag.
 
 Once the image is built, you can run the container using the following command:
 
-```docker run -p 5001:5000 flask-app```
+```docker run -p 5001:5000 flask-app:$TAG```
 
 This command starts the container and maps port 5000 inside the container to port 5001 on your local machine.
 
