@@ -112,12 +112,17 @@ Access the deployment via the created ALB (HTTP) on the /health API:
 
 Use Chekov on your terraform plans to identify, early in the development phase; misconfigurations that may lead to security or compliance problems:
 ```
+cd terraform
 terraform init
 terraform plan --out tfplan.binary
 terraform show -json tfplan.binary | jq > tfplan.json
 checkov -f tfplan.json
 ```
 Work to prioritize and remediate all issues found by Chekov.
+Once done, delete the created files (they won't be commited and will be ignored in git from security purposes):
+```
+rm tfplan.binary tfplan.json
+```
 
 Use Trivy as well (as a complementary solution) to scans all configuration files for misconfiguration issues, as well as for identifying CVEs within the created docker images.
 ```
