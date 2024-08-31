@@ -12,6 +12,7 @@ Prerequisites
 - Python 3.8 or higher
 - Docker and Docker Compose
 - Git
+- SonarCloud (SonarQube) Access
 
 ### Local Development
 
@@ -66,6 +67,11 @@ For spinning down all containers:
 ```docker-compose down```
 
 #### 4. GitHub Actions Pipeline Automation
+
+#### 5. Use SonarQube for Static Code Analysis to Improve Code Quality:
+Ask for a user / login via SSO to https://sonarcloud.io/ to 'flask-app' dashboard on 'main' branch to resolve Issues, Security Hotspots, Coverage, Duplications, etc. 
+
+![alt text](https://i.imghippo.com/files/Qrbm71725095992.png)
 
 ### AWS Infrastructure
 
